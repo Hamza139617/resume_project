@@ -9,18 +9,136 @@
         <link rel="icon" type="image/svg+xml" href="../Assets/favicon_3.png">
     </head>
     <body>
-        <header>
-            
-        </header>
-        <main class="min-h-screen bg-[#030B1A]">
-            <section>
-               
-            </section>
-            <article></article>
-            <aside></aside>
-        </main>
-        <footer>
+        <header></header>
 
-        </footer>
+        <main class="min-h-screen flex flex-row bg-b-navy">
+
+            <!-- ===== NAVBAR (sidebar) ===== -->
+            <section class="w-64 shrink-0 h-screen sticky top-0 flex flex-col justify-between 
+                             bg-primary border-r border-teal/10 px-4 py-6">
+                
+                <!-- top: logo + nav links -->
+                <div>
+                    <div class="flex items-center gap-2 px-2 mb-8">
+                        <div class="w-8 h-8 rounded-lg bg-mint/10 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-mint" 
+                                 fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                                <path stroke-linecap="round" stroke-linejoin="round" 
+                                      d="M12 6.25v11.5m-5.75-5.75h11.5" />
+                            </svg>
+                        </div>
+                        <span class="text-body-text font-semibold text-lg">StudyAI</span>
+                    </div>
+
+                    <nav class="flex flex-col gap-1">
+                        <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg 
+                                           bg-teal/10 text-body-text text-sm font-medium">
+                            <svg class="w-4 h-4 text-mint" fill="none" viewBox="0 0 24 24" 
+                                 stroke="currentColor" stroke-width="1.8">
+                                <path stroke-linecap="round" stroke-linejoin="round" 
+                                      d="M8 10h8M8 14h5M21 12c0 4.97-4.03 9-9 9-1.5 0-2.9-.37-4.15-1.02L3 21l1.05-3.68A8.96 8.96 0 013 12c0-4.97 4.03-9 9-9s9 4.03 9 9z" />
+                            </svg>
+                            Chat
+                        </a>
+                        <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg 
+                                           text-secondary-text hover:bg-teal/10 hover:text-body-text 
+                                           text-sm font-medium transition-colors">
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" 
+                                 stroke="currentColor" stroke-width="1.8">
+                                <path stroke-linecap="round" stroke-linejoin="round" 
+                                      d="M12 6v6l4 2M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            History
+                        </a>
+                        <a href="#" class="flex items-center gap-3 px-3 py-2 rounded-lg 
+                                           text-secondary-text hover:bg-teal/10 hover:text-body-text 
+                                           text-sm font-medium transition-colors">
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" 
+                                 stroke="currentColor" stroke-width="1.8">
+                                <path stroke-linecap="round" stroke-linejoin="round" 
+                                      d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            Settings
+                        </a>
+                    </nav>
+                </div>
+
+                <!-- bottom: user chip -->
+                <div class="flex items-center gap-3 px-2 py-2 rounded-lg hover:bg-teal/10 transition-colors">
+                    <div class="w-8 h-8 rounded-full bg-teal flex items-center justify-center 
+                                text-body-text text-sm font-semibold">
+                        H
+                    </div>
+                    <span class="text-body-text text-sm font-medium">Hamza</span>
+                </div>
+            </section>
+
+            <!-- ===== CHAT AREA ===== -->
+            <section class="flex-1 flex flex-col h-screen">
+
+                <!-- greeting / message scroll area -->
+                <div class="flex-1 overflow-y-auto flex flex-col justify-center items-center px-6">
+                    <div class="text-center">
+                        <h1 class="text-3xl md:text-4xl font-semibold text-body-text mb-2">
+                            Good to see you, <span class="text-mint">Hamza</span>
+                        </h1>
+                        <p class="text-secondary-text text-sm md:text-base">
+                            What are we studying today?
+                        </p>
+                    </div>
+
+                    <!-- chat messages will render here later, e.g.: -->
+                    <!--
+                    <div class="w-full max-w-3xl mx-auto flex flex-col gap-4 mt-8">
+                        <div class="self-end bg-teal/20 text-body-text px-4 py-2 rounded-2xl rounded-br-sm max-w-md">
+                            Explain pointers in C++
+                        </div>
+                        <div class="self-start bg-primary text-body-text px-4 py-2 rounded-2xl rounded-bl-sm max-w-md">
+                            A pointer is a variable that stores a memory address...
+                        </div>
+                    </div>
+                    -->
+                </div>
+
+                <!-- search / chat input bar -->
+                <div class="w-full px-4 pb-6 pt-2">
+                    <div class="w-full max-w-3xl mx-auto">
+                        <form class="flex items-center gap-3 bg-primary border border-teal/20 rounded-2xl px-4 py-3 
+                                     focus-within:border-mint/60 focus-within:shadow-[0_0_0_3px_rgba(33,230,193,0.15)] 
+                                     transition-all duration-200">
+                            
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-secondary-text shrink-0" 
+                                 fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" 
+                                      d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z" />
+                            </svg>
+
+                            <input 
+                                type="text" 
+                                placeholder="Ask your study assistant anything..." 
+                                class="flex-1 bg-transparent text-body-text placeholder-secondary-text 
+                                       focus:outline-none text-sm md:text-base"
+                            />
+
+                            <button type="submit" 
+                                    class="bg-mint text-b-navy rounded-full p-2 shrink-0 
+                                           hover:bg-teal hover:text-body-text 
+                                           transition-colors duration-200 disabled:opacity-40 disabled:cursor-not-allowed">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" 
+                                     viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M3.4 20.6l17.45-8.4a1 1 0 000-1.8L3.4 1.9a1 1 0 00-1.4 1.15L4.5 12 2 19.45a1 1 0 001.4 1.15z"/>
+                                </svg>
+                            </button>
+                        </form>
+                        <p class="text-center text-xs text-secondary-text mt-2">
+                            StudyAI can make mistakes. Double-check important answers.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer></footer>
     </body>
 </html>
