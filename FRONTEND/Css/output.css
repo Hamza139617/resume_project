@@ -7,7 +7,6 @@
       "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-amber-500: oklch(76.9% 0.188 70.08);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
   }
@@ -161,7 +160,10 @@
   }
 }
 @layer utilities {
-  .text-amber-500 {
-    color: var(--color-amber-500);
+  .min-h-screen {
+    min-height: 100vh;
+  }
+  .bg-\[\#030B1A\] {
+    background-color: #030B1A;
   }
 }
