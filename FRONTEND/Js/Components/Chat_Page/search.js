@@ -14,7 +14,7 @@ form.addEventListener("submit", function(event) {
 
     input.value = ""
 
-    greeting = chatBox.querySelector("#greeting")
+    let greeting = chatBox.querySelector("#greeting")
 
     if(searchText != "" && greeting != null ) {
         
