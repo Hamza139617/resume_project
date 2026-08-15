@@ -196,6 +196,12 @@
   .top-0 {
     top: 0px;
   }
+  .z-0 {
+    z-index: 0;
+  }
+  .z-1 {
+    z-index: 1;
+  }
   .mx-auto {
     margin-inline: auto;
   }
@@ -214,6 +220,12 @@
   .flex {
     display: flex;
   }
+  .inline {
+    display: inline;
+  }
+  .table {
+    display: table;
+  }
   .h-4 {
     height: calc(var(--spacing) * 4);
   }
@@ -223,11 +235,29 @@
   .h-8 {
     height: calc(var(--spacing) * 8);
   }
+  .h-10 {
+    height: calc(var(--spacing) * 10);
+  }
+  .h-12 {
+    height: calc(var(--spacing) * 12);
+  }
+  .h-15 {
+    height: calc(var(--spacing) * 15);
+  }
+  .h-16 {
+    height: calc(var(--spacing) * 16);
+  }
+  .h-full {
+    height: 100%;
+  }
   .h-screen {
     height: 100vh;
   }
   .min-h-screen {
     min-height: 100vh;
+  }
+  .w-0 {
+    width: 0px;
   }
   .w-4 {
     width: calc(var(--spacing) * 4);
@@ -235,11 +265,41 @@
   .w-5 {
     width: calc(var(--spacing) * 5);
   }
+  .w-6 {
+    width: calc(var(--spacing) * 6);
+  }
+  .w-7 {
+    width: calc(var(--spacing) * 7);
+  }
   .w-8 {
     width: calc(var(--spacing) * 8);
   }
+  .w-10 {
+    width: calc(var(--spacing) * 10);
+  }
+  .w-12 {
+    width: calc(var(--spacing) * 12);
+  }
+  .w-15 {
+    width: calc(var(--spacing) * 15);
+  }
+  .w-16 {
+    width: calc(var(--spacing) * 16);
+  }
+  .w-56 {
+    width: calc(var(--spacing) * 56);
+  }
+  .w-60 {
+    width: calc(var(--spacing) * 60);
+  }
   .w-64 {
     width: calc(var(--spacing) * 64);
+  }
+  .w-80 {
+    width: calc(var(--spacing) * 80);
+  }
+  .w-90 {
+    width: calc(var(--spacing) * 90);
   }
   .w-full {
     width: 100%;
@@ -253,8 +313,17 @@
   .flex-1 {
     flex: 1;
   }
+  .flex-shrink {
+    flex-shrink: 1;
+  }
   .shrink-0 {
     flex-shrink: 0;
+  }
+  .border-collapse {
+    border-collapse: collapse;
+  }
+  .resize {
+    resize: both;
   }
   .flex-col {
     flex-direction: column;
@@ -322,6 +391,9 @@
   .border-red-500 {
     border-color: var(--color-red-500);
   }
+  .border-teal {
+    border-color: var(--color-teal);
+  }
   .border-teal\/10 {
     border-color: color-mix(in srgb, #278EA5 10%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -369,6 +441,9 @@
   }
   .p-2 {
     padding: calc(var(--spacing) * 2);
+  }
+  .px-1 {
+    padding-inline: var(--spacing);
   }
   .px-2 {
     padding-inline: calc(var(--spacing) * 2);
@@ -436,8 +511,15 @@
   .text-secondary-text {
     color: var(--color-secondary-text);
   }
+  .underline {
+    text-decoration-line: underline;
+  }
   .placeholder-secondary-text::placeholder {
     color: var(--color-secondary-text);
+  }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
   }
   .transition-all {
     transition-property: all;
@@ -508,6 +590,11 @@
 @property --tw-font-weight {
   syntax: "*";
   inherits: false;
+}
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
 }
 @property --tw-duration {
   syntax: "*";
@@ -583,6 +670,7 @@
     *, ::before, ::after, ::backdrop {
       --tw-border-style: solid;
       --tw-font-weight: initial;
+      --tw-outline-style: solid;
       --tw-duration: initial;
       --tw-shadow: 0 0 #0000;
       --tw-shadow-color: initial;
