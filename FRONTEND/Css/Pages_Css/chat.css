@@ -1,0 +1,14 @@
+.nav-text {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    opacity: 1;
+    max-width: 150px;
+    transition: opacity 0.75s ease 0.1s, max-width 0.25s ease;
+}
+
+.nav-text.text-hidden {
+    opacity: 0;
+    max-width: 0;
+    transition: opacity 0.15s ease, max-width 0.2s ease;
+}

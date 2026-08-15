@@ -11,7 +11,8 @@ logoBtn.addEventListener('click', () =>{
     sidebar.classList.toggle('is-open');
     
     sidebarText.forEach((sideText) => {
-        sideText.classList.toggle('hidden');
+        
+        sideText.classList.toggle('text-hidden');
     })
 
 });
