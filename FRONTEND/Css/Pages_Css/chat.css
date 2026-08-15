@@ -4,7 +4,7 @@
     overflow: hidden;
     opacity: 1;
     max-width: 150px;
-    transition: opacity 0.75s ease 0.1s, max-width 0.25s ease;
+    transition: opacity 0.75s ease 0.1s, max-width 0.65s ease;
 }
 
 .nav-text.text-hidden {
