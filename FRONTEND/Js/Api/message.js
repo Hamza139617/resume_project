@@ -1,7 +1,7 @@
 
 // for sending the user query
 
-async function sendChatMessage(message) {
+export async function sendChatMessage(message) {
     const response = await fetch("http://localhost:8000/chat", {
         method:"POST",
         headers: {
