@@ -1,16 +1,10 @@
 import { sendChatMessage } from "../../Api/message.js";
 
-
-
 const input = document.getElementById("searchBox");
 const form = document.getElementById("searchForm");
 const chatBox = document.getElementById("chatArea");
 
-
-
-
-
-form.addEventListener("submit", function(event) {
+form.addEventListener("submit", async function(event) {
     event.preventDefault();
 
     const searchText = input.value;
@@ -47,10 +41,6 @@ form.addEventListener("submit", function(event) {
             console.error("Faile to get response: ", error)
         }
 
-        
-
-
-
     }else if(searchText != "" && greeting == null ) {
 
         let humanMessage = document.createElement("div")
@@ -78,5 +68,3 @@ form.addEventListener("submit", function(event) {
 
     }
 })
-
-
