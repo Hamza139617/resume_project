@@ -25,6 +25,7 @@ form.addEventListener("submit", async function(event) {
         humanMessage.setAttributeNode(attribute)
         humanMessage.textContent = searchText
         chatBox.appendChild(humanMessage)
+        chatBox.scrollTop = chatBox.scrollHeight
 
         try{
             const data = await sendChatMessage(searchText)
@@ -35,7 +36,7 @@ form.addEventListener("submit", async function(event) {
             aiMessaage.setAttributeNode(aiAttribute)
             aiMessaage.textContent = data.response
             chatBox.appendChild(aiMessaage)
-            
+            chatBox.scrollTop = chatBox.scrollHeight
 
         } catch( error ) {
             console.error("Faile to get response: ", error)
@@ -49,18 +50,18 @@ form.addEventListener("submit", async function(event) {
         humanMessage.setAttributeNode(attribute)
         humanMessage.textContent = searchText
         chatBox.appendChild(humanMessage)
-
+        chatBox.scrollTop = chatBox.scrollHeight
 
         try{
             const data = await sendChatMessage(searchText)
             
             let aiMessaage = document.createElement("div")
             let aiAttribute = document.createAttribute("class")
-            aiAttribute.value = "block w-fit text-center bg-primary border border-teal/20 rounded-2xl px-4 py-3 text-body-text ml-auto my-4 "
+            aiAttribute.value = "block w-fit text-center bg-primary border border-teal/20 rounded-2xl px-4 py-3 text-body-text ml-auto my-4  "
             aiMessaage.setAttributeNode(aiAttribute)
             aiMessaage.textContent = data.response
             chatBox.appendChild(aiMessaage)
-            
+            chatBox.scrollTop = chatBox.scrollHeight
 
         } catch( error ) {
             console.error("Faile to get response: ", error)
