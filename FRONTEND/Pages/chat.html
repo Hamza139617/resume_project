@@ -36,8 +36,8 @@
         <main class="min-h-screen flex flex-row bg-b-navy">
 
             <!-- ===== NAVBAR (sidebar) ===== -->
-            <section id="sidebar" class="w-14 z-1  shrink-0 h-screen sticky top-0 flex flex-col justify-between 
-                             bg-primary border-r border-teal/10 py-6">
+            <section id="sidebar" class="w-14 z-20 h-screen fixed top-0 left-0 flex flex-col justify-between 
+                     bg-primary border-r border-teal/10 py-6">
                 
                 <!-- top: logo + nav links -->
                 <div>
@@ -92,8 +92,10 @@
                 </div>
             </section>
 
+            <div id="sidebarOverlay" class="fixed inset-0 bg-b-navy/70 z-10"></div>
+
             <!-- ===== CHAT AREA ===== -->
-            <section class="z-0  flex flex-1  flex-col h-screen">
+            <section class="z-0 flex flex-1 flex-col h-screen ml-14">
 
                 <!-- greeting / message scroll area -->
                 <div id="chatArea" class="   flex-1 overflow-y-auto flex flex-col justify-start items-center px-6">
