@@ -1,0 +1,793 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Paidagogos — Your AI Study Companion</title>
+
+    <meta
+      name="description"
+      content="Paidagogos is your intelligent study companion, helping you understand, practice, and master what you learn."
+    />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="Css/output.css" rel="stylesheet" />
+
+    <link rel="icon" type="image/svg+xml" href="../Assets/favicon_3.png" />
+  </head>
+
+  <body class="bg-b-navy text-body-text antialiased overflow-x-hidden">
+    <!-- ========================================================= -->
+    <!-- NAVBAR -->
+    <!-- ========================================================= -->
+
+    <header class="fixed top-0 left-0 right-0 z-50">
+      <nav class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pt-5">
+        <div
+          class="flex items-center justify-between h-16 px-4 sm:px-6 bg-primary/80 backdrop-blur-xl border border-teal/10 rounded-2xl"
+        >
+          
+
+          <a href="#" class="flex items-center gap-3">
+            <div class="w-9 h-9 sm:w-10 sm:h-10">
+              <img
+                src="Assets/logo.svg"
+                alt="Paidagogos logo"
+                class="w-full h-full"
+              />
+            </div>
+
+            <span
+              class="text-body-text font-semibold text-base sm:text-lg tracking-tight"
+            >
+              Paidagogos
+            </span>
+          </a>
+
+          
+
+          <div class="hidden md:flex items-center gap-8">
+            <a
+              href="#features"
+              class="text-secondary-text hover:text-body-text text-sm transition-colors"
+            >
+              Features
+            </a>
+
+            <a
+              href="#how-it-works"
+              class="text-secondary-text hover:text-body-text text-sm transition-colors"
+            >
+              How it works
+            </a>
+
+            <a
+              href="#about"
+              class="text-secondary-text hover:text-body-text text-sm transition-colors"
+            >
+              About
+            </a>
+            <a href="Pages/chat.html"
+            class="text-secondary-text hover:text-body-text text-sm transition-colors"
+            >
+            Chat
+            </a>
+          </div>
+
+          <!-- CTA -->
+
+          <a
+            href="Pages/chat.html"
+            class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-lg bg-mint text-b-navy text-sm font-semibold hover:bg-teal hover:text-body-text transition-all duration-200"
+          >
+            Get started
+
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M5 12h14M13 6l6 6-6 6"
+              />
+            </svg>
+          </a>
+
+          <!-- MOBILE MENU BUTTON -->
+
+          <button
+            id="mobileMenuButton"
+            class="md:hidden p-2 text-secondary-text hover:text-body-text"
+            aria-label="Open menu"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <!-- MOBILE MENU -->
+
+        <div
+          id="mobileMenu"
+          class="hidden md:hidden mt-2 p-4 bg-primary border border-teal/10 rounded-2xl"
+        >
+          <div class="flex flex-col gap-2">
+            <a
+              href="#features"
+              class="px-4 py-3 rounded-lg text-secondary-text hover:text-body-text hover:bg-teal/10 transition"
+            >
+              Features
+            </a>
+
+            <a
+              href="#how-it-works"
+              class="px-4 py-3 rounded-lg text-secondary-text hover:text-body-text hover:bg-teal/10 transition"
+            >
+              How it works
+            </a>
+
+            <a
+              href="#about"
+              class="px-4 py-3 rounded-lg text-secondary-text hover:text-body-text hover:bg-teal/10 transition"
+            >
+              About
+            </a>
+
+            <a
+              href="#get-started"
+              class="mt-2 px-4 py-3 rounded-lg bg-mint text-b-navy text-center font-semibold"
+            >
+              Get started
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ========================================================= -->
+    <!-- HERO -->
+    <!-- ========================================================= -->
+
+    <main>
+      <section
+        class="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden"
+      >
+        <!-- BACKGROUND GLOW -->
+
+        <div
+          class="absolute top-20 left-1/2 -translate-x-1/2 w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] rounded-full bg-teal/10 blur-[140px] pointer-events-none"
+        ></div>
+
+        <div
+          class="absolute top-[30%] right-[-200px] w-[400px] h-[400px] rounded-full bg-mint/5 blur-[120px] pointer-events-none"
+        ></div>
+
+        <!-- SUBTLE GRID -->
+
+        <div
+          class="absolute inset-0 opacity-[0.035] pointer-events-none"
+          style="
+            background-image:
+              linear-gradient(#278ea5 1px, transparent 1px),
+              linear-gradient(90deg, #278ea5 1px, transparent 1px);
+            background-size: 60px 60px;
+          "
+        ></div>
+
+        <div class="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 w-full">
+          <!-- HERO CONTENT -->
+
+          <div class="max-w-4xl mx-auto text-center">
+            <!-- EYEBROW -->
+
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-teal/20 bg-primary/60 backdrop-blur-sm mb-7"
+            >
+              <span
+                class="w-1.5 h-1.5 rounded-full bg-mint shadow-[0_0_10px_rgba(33,230,193,0.8)]"
+              ></span>
+
+              <span
+                class="text-secondary-text text-xs sm:text-sm tracking-wide"
+              >
+                YOUR AI STUDY COMPANION
+              </span>
+            </div>
+
+            <!-- HEADING -->
+
+            <h1
+              class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.05]"
+            >
+              Learn with clarity.
+
+              <br />
+
+              <span class="text-mint"> Grow with confidence. </span>
+            </h1>
+
+            <!-- DESCRIPTION -->
+
+            <p
+              class="max-w-2xl mx-auto mt-7 text-base sm:text-lg text-secondary-text leading-relaxed"
+            >
+              Paidagogos is your intelligent companion for learning — helping
+              you understand difficult concepts, practice what you know, and
+              move forward with confidence.
+            </p>
+
+            <!-- CTA BUTTONS -->
+
+            <div
+              class="flex flex-col sm:flex-row items-center justify-center gap-3 mt-9"
+            >
+              <a
+                href="Pages/chat.html"
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-mint text-b-navy font-semibold text-sm hover:bg-teal hover:text-body-text transition-all duration-200 shadow-[0_0_30px_rgba(33,230,193,0.12)]"
+              >
+                Start learning
+
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M5 12h14M13 6l6 6-6 6"
+                  />
+                </svg>
+              </a>
+
+              <a
+                href="#features"
+                class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 rounded-xl border border-teal/20 bg-primary/50 text-body-text font-medium text-sm hover:bg-teal/10 hover:border-teal/40 transition-all duration-200"
+              >
+                Explore Paidagogos
+              </a>
+            </div>
+          </div>
+
+          <!-- ================================================= -->
+          <!-- PRODUCT PREVIEW -->
+          <!-- ================================================= -->
+
+          <div class="relative max-w-5xl mx-auto mt-16 sm:mt-20">
+            <!-- OUTER GLOW -->
+
+            <div
+              class="absolute inset-0 bg-teal/10 blur-[80px] rounded-full pointer-events-none"
+            ></div>
+
+            <!-- APP WINDOW -->
+
+            <div
+              class="relative bg-primary border border-teal/20 rounded-2xl overflow-hidden shadow-2xl"
+            >
+              <!-- WINDOW HEADER -->
+
+              <div class="h-12 px-4 flex items-center border-b border-teal/10">
+                <div class="flex gap-1.5">
+                  <span
+                    class="w-2.5 h-2.5 rounded-full bg-secondary-text/40"
+                  ></span>
+
+                  <span
+                    class="w-2.5 h-2.5 rounded-full bg-secondary-text/30"
+                  ></span>
+
+                  <span
+                    class="w-2.5 h-2.5 rounded-full bg-secondary-text/20"
+                  ></span>
+                </div>
+
+                <div
+                  class="absolute left-1/2 -translate-x-1/2 flex items-center gap-2"
+                >
+                  <div class="w-5 h-5">
+                    <img src="Assets/logo.svg" alt="" class="w-full h-full" />
+                  </div>
+
+                  <span class="text-xs text-secondary-text"> Paidagogos </span>
+                </div>
+              </div>
+
+              <!-- APP CONTENT -->
+
+              <div class="min-h-[300px] sm:min-h-[420px] flex">
+                <!-- SIDEBAR -->
+
+                <aside
+                  class="hidden sm:flex w-48 lg:w-56 border-r border-teal/10 p-4 flex-col"
+                >
+                  <div class="flex items-center gap-2 mb-7">
+                    <div
+                      class="w-8 h-8 rounded-lg flex items-center justify-center"
+                    >
+                      <img src="Assets/logo.svg" alt="" class="w-full h-full" />
+                    </div>
+
+                    <span class="text-sm font-semibold"> Paidagogos </span>
+                  </div>
+
+                  <div class="space-y-1">
+                    <div
+                      class="flex items-center gap-2 px-3 py-2 rounded-lg bg-teal/10 text-body-text text-xs"
+                    >
+                      <span class="text-mint">◌</span>
+
+                      Chat
+                    </div>
+
+                    <div
+                      class="flex items-center gap-2 px-3 py-2 text-secondary-text text-xs"
+                    >
+                      <span>◷</span>
+
+                      History
+                    </div>
+
+                    <div
+                      class="flex items-center gap-2 px-3 py-2 text-secondary-text text-xs"
+                    >
+                      <span>⚙</span>
+
+                      Settings
+                    </div>
+                  </div>
+                </aside>
+
+                <!-- CHAT -->
+
+                <div class="flex-1 flex flex-col p-5 sm:p-8">
+                  <div
+                    class="flex-1 flex flex-col justify-center items-center text-center"
+                  >
+                    <h2 class="text-xl sm:text-2xl font-semibold">
+                      What are we studying today?
+                    </h2>
+
+                    <p class="text-secondary-text text-xs sm:text-sm mt-2">
+                      Ask anything. Understand everything.
+                    </p>
+
+                    <!-- FAKE CHAT -->
+
+                    <div class="w-full max-w-xl mt-8 space-y-3 text-left">
+                      <div
+                        class="ml-auto max-w-[75%] px-4 py-3 rounded-xl bg-teal/10 border border-teal/10"
+                      >
+                        <p class="text-xs text-body-text">
+                          Explain recursion in simple terms.
+                        </p>
+                      </div>
+
+                      <div
+                        class="max-w-[85%] px-4 py-3 rounded-xl bg-b-navy border border-teal/10"
+                      >
+                        <p class="text-xs leading-relaxed text-secondary-text">
+                          Think of recursion as solving a smaller version of the
+                          same problem until you reach a simple case...
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- INPUT -->
+
+                  <div class="w-full max-w-2xl mx-auto">
+                    <div
+                      class="flex items-center gap-3 bg-b-navy border border-teal/20 rounded-xl px-4 py-3"
+                    >
+                      <span class="text-secondary-text text-sm">
+                        Ask your study assistant anything...
+                      </span>
+
+                      <div
+                        class="ml-auto w-8 h-8 rounded-full bg-mint flex items-center justify-center"
+                      >
+                        <svg
+                          class="w-4 h-4 text-b-navy"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M3.4 20.6l17.45-8.4a1 1 0 000-1.8L3.4 1.9a1 1 0 00-1.4 1.15L4.5 12 2 19.45a1 1 0 001.4 1.15z"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- INTRO -->
+      <!-- ========================================================= -->
+
+      <section id="about" class="py-24 sm:py-32">
+        <div class="max-w-4xl mx-auto px-5 sm:px-8 text-center">
+          <p
+            class="text-mint text-xs font-semibold tracking-[0.2em] uppercase mb-5"
+          >
+            More than an AI chatbot
+          </p>
+
+          <h2
+            class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight"
+          >
+            A companion for the
+            <span class="text-mint">way you learn.</span>
+          </h2>
+
+          <p
+            class="mt-6 text-secondary-text text-base sm:text-lg leading-relaxed"
+          >
+            Learning is not just about getting answers. It's about understanding
+            why, practicing what you know, and building knowledge that stays
+            with you. Paidagogos is designed to be there throughout that
+            journey.
+          </p>
+        </div>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- FEATURES -->
+      <!-- ========================================================= -->
+
+      <section
+        id="features"
+        class="py-24 sm:py-32 border-y border-teal/10 bg-primary/30"
+      >
+        <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+          <!-- SECTION HEADING -->
+
+          <div class="max-w-2xl mb-14">
+            <p
+              class="text-mint text-xs font-semibold tracking-[0.2em] uppercase mb-4"
+            >
+              Built for learning
+            </p>
+
+            <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight">
+              Everything you need to
+              <span class="text-mint">learn better.</span>
+            </h2>
+
+            <p class="mt-4 text-secondary-text leading-relaxed">
+              From understanding difficult concepts to reviewing what you've
+              already learned, Paidagogos adapts to your study flow.
+            </p>
+          </div>
+
+          <!-- FEATURE GRID -->
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <!-- FEATURE 1 -->
+
+            <article
+              class="group p-6 rounded-2xl bg-primary border border-teal/10 hover:border-teal/30 transition-all duration-300"
+            >
+              <div
+                class="w-11 h-11 rounded-xl bg-teal/10 flex items-center justify-center text-mint mb-6"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M8 10h8M8 14h5M21 12c0 4.97-4.03 9-9 9-1.5 0-2.9-.37-4.15-1.02L3 21l1.05-3.68A8.96 8.96 0 013 12c0-4.97 4.03-9 9-9s9 4.03 9 9z"
+                  />
+                </svg>
+              </div>
+
+              <h3 class="font-semibold text-lg mb-2">
+                Learn through conversation
+              </h3>
+
+              <p class="text-sm text-secondary-text leading-relaxed">
+                Ask questions naturally and explore ideas through meaningful
+                conversations.
+              </p>
+            </article>
+
+            <!-- FEATURE 2 -->
+
+            <article
+              class="group p-6 rounded-2xl bg-primary border border-teal/10 hover:border-teal/30 transition-all duration-300"
+            >
+              <div
+                class="w-11 h-11 rounded-xl bg-teal/10 flex items-center justify-center text-mint mb-6"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 6v6l4 2M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
+
+              <h3 class="font-semibold text-lg mb-2">
+                Keep your learning history
+              </h3>
+
+              <p class="text-sm text-secondary-text leading-relaxed">
+                Revisit previous conversations and continue learning without
+                starting from zero.
+              </p>
+            </article>
+
+            <!-- FEATURE 3 -->
+
+            <article
+              class="group p-6 rounded-2xl bg-primary border border-teal/10 hover:border-teal/30 transition-all duration-300"
+            >
+              <div
+                class="w-11 h-11 rounded-xl bg-teal/10 flex items-center justify-center text-mint mb-6"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4"
+                  />
+                </svg>
+              </div>
+
+              <h3 class="font-semibold text-lg mb-2">
+                Understand difficult concepts
+              </h3>
+
+              <p class="text-sm text-secondary-text leading-relaxed">
+                Break complicated subjects into explanations that actually make
+                sense.
+              </p>
+            </article>
+
+            <!-- FEATURE 4 -->
+
+            <article
+              class="group p-6 rounded-2xl bg-primary border border-teal/10 hover:border-teal/30 transition-all duration-300"
+            >
+              <div
+                class="w-11 h-11 rounded-xl bg-teal/10 flex items-center justify-center text-mint mb-6"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 12l2 2 4-4M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7l7-4z"
+                  />
+                </svg>
+              </div>
+
+              <h3 class="font-semibold text-lg mb-2">Study with confidence</h3>
+
+              <p class="text-sm text-secondary-text leading-relaxed">
+                Get explanations, examples, and guidance while staying in
+                control of your learning.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- HOW IT WORKS -->
+      <!-- ========================================================= -->
+
+      <section id="how-it-works" class="py-24 sm:py-32">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+          <div class="text-center max-w-2xl mx-auto mb-16">
+            <p
+              class="text-mint text-xs font-semibold tracking-[0.2em] uppercase mb-4"
+            >
+              Your learning flow
+            </p>
+
+            <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight">
+              Ask. Understand. <span class="text-mint">Master.</span>
+            </h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- STEP 1 -->
+
+            <div
+              class="relative p-7 rounded-2xl border border-teal/10 bg-primary/50"
+            >
+              <span class="text-5xl font-semibold text-teal/20"> 01 </span>
+
+              <h3 class="mt-6 text-xl font-semibold">Ask</h3>
+
+              <p class="mt-3 text-sm text-secondary-text leading-relaxed">
+                Start with a question, a problem, or something you simply don't
+                understand yet.
+              </p>
+            </div>
+
+            <!-- STEP 2 -->
+
+            <div
+              class="relative p-7 rounded-2xl border border-teal/10 bg-primary/50"
+            >
+              <span class="text-5xl font-semibold text-teal/20"> 02 </span>
+
+              <h3 class="mt-6 text-xl font-semibold">Understand</h3>
+
+              <p class="mt-3 text-sm text-secondary-text leading-relaxed">
+                Explore the idea through explanations, examples, questions, and
+                conversation.
+              </p>
+            </div>
+
+            <!-- STEP 3 -->
+
+            <div
+              class="relative p-7 rounded-2xl border border-teal/10 bg-primary/50"
+            >
+              <span class="text-5xl font-semibold text-teal/20"> 03 </span>
+
+              <h3 class="mt-6 text-xl font-semibold">Master</h3>
+
+              <p class="mt-3 text-sm text-secondary-text leading-relaxed">
+                Practice what you've learned and turn understanding into
+                knowledge you can actually use.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- LARGE CTA -->
+      <!-- ========================================================= -->
+
+      <section id="get-started" class="relative py-24 sm:py-32 overflow-hidden">
+        <div
+          class="absolute inset-0 bg-primary/60 border-y border-teal/10"
+        ></div>
+
+        <div
+          class="absolute left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-mint/5 blur-[120px]"
+        ></div>
+
+        <div class="relative max-w-3xl mx-auto px-5 text-center">
+          <div class="w-14 h-14 mx-auto mb-7">
+            <img src="Assets/logo.svg" alt="Paidagogos" class="w-full h-full" />
+          </div>
+
+          <h2
+            class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight"
+          >
+            Your learning journey
+            <span class="text-mint">starts here.</span>
+          </h2>
+
+          <p class="mt-5 text-secondary-text text-base sm:text-lg">
+            Meet Paidagogos — your companion for learning, understanding, and
+            growing.
+          </p>
+
+          <a
+            href="Pages/chat.html"
+            class="inline-flex items-center gap-2 mt-8 px-7 py-3.5 rounded-xl bg-mint text-b-navy font-semibold text-sm hover:bg-teal hover:text-body-text transition-all duration-200"
+          >
+            Start learning
+
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M5 12h14M13 6l6 6-6 6"
+              />
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- FOOTER -->
+      <!-- ========================================================= -->
+
+      <footer class="border-t border-teal/10">
+        <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-8">
+          <div
+            class="flex flex-col sm:flex-row items-center justify-between gap-4"
+          >
+            <div class="flex items-center gap-2">
+              <div class="w-7 h-7">
+                <img
+                  src="Assets/logo.svg"
+                  alt="Paidagogos"
+                  class="w-full h-full"
+                />
+              </div>
+
+              <span class="text-sm font-semibold"> Paidagogos </span>
+            </div>
+
+            <p class="text-xs text-secondary-text">
+              Learn with curiosity. Grow with confidence.
+            </p>
+
+            <p class="text-xs text-secondary-text">© 2026 Paidagogos</p>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <!-- ========================================================= -->
+    <!-- MOBILE MENU SCRIPT -->
+    <!-- ========================================================= -->
+
+    <script>
+      const mobileMenuButton = document.getElementById("mobileMenuButton");
+
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      document.querySelectorAll("#mobileMenu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+    </script>
+  </body>
+</html>
