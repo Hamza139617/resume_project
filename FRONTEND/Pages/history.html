@@ -3,15 +3,16 @@
     <head>
         <meta charset="UTF-8">
         <title>Paidagogos</title>
-        <meta name="description" content="The first page where the interaction is going to be happening between the user and the study assistant">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="one of the best websites for increasing your knowledge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="../Css/output.css" rel="stylesheet">
         <link rel="icon" type="image/svg+xml" href="../Assets/favicon_3.png">
+        <link rel="stylesheet" href="../Css/Pages_Css/history.css">
         <link rel="stylesheet" href="../Css/Pages_Css/chat.css">
 
         <style>
 
-            
+ 
             #sidebar{
                 transition: width 0.3s ease, transform 0.3s ease;
                 transform-origin: left center;
@@ -29,13 +30,13 @@
             }
 
         </style>
+
     </head>
     <body>
-        <header></header>
+        <header>
 
+        </header>
         <main class="min-h-screen flex flex-row bg-b-navy">
-
-            <!-- ===== navbar sectiobn ===== -->
             <section id="sidebar" class="w-14 z-20 h-screen fixed top-0 left-0 flex flex-col justify-between 
                      bg-primary border-r border-teal/10 py-6">
                 
@@ -117,68 +118,17 @@
 
             <div id="sidebarOverlay" class="fixed inset-0 bg-b-navy/70 z-10"></div>
 
-            <!-- ===== CHAT AREA ===== -->
-            <section class="z-0 flex flex-1 flex-col h-screen ml-14">
+            <!--chat history section-->
+        <section>
 
-                <!-- greeting / message scroll area -->
-                <div id="chatArea" class="   flex-1 overflow-y-auto flex flex-col justify-start items-center px-6">
-                    <div id="greeting" class="text-center">
-                        <h1 class="text-3xl md:text-4xl font-semibold text-body-text mb-2">
-                            Good to see you, <span class="text-mint">Hamza</span>
-                        </h1>
-                        <p class="text-secondary-text text-sm md:text-base">
-                            What are we studying today?
-                        </p>
-                    </div>
+            
 
+        </section>
 
-                    
-               
-                </div>
-
-                <!-- search / chat input bar -->
-                <div class="w-full px-4 pb-6 pt-2">
-                    <div class="w-full max-w-3xl mx-auto">
-                        <form id = "searchForm" class="flex items-center gap-3 bg-primary border border-teal/20 rounded-2xl px-4 py-3 
-                                     focus-within:border-mint/60 focus-within:shadow-[0_0_0_3px_rgba(33,230,193,0.15)] 
-                                     transition-all duration-200">
-                            
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-secondary-text shrink-0" 
-                                 fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" 
-                                      d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z" />
-                            </svg>
-
-                            <input 
-                                id="searchBox"
-                                type="text" 
-                                placeholder="Ask your study assistant anything..." 
-                                class="flex-1 bg-transparent text-body-text placeholder-secondary-text 
-                                       focus:outline-none text-sm md:text-base"
-                            />
-
-                            <button type="submit" 
-                                    class="bg-mint text-b-navy rounded-full p-2 shrink-0 
-                                           hover:bg-teal hover:text-body-text 
-                                           transition-colors duration-200 disabled:opacity-40 disabled:cursor-not-allowed">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" 
-                                     viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M3.4 20.6l17.45-8.4a1 1 0 000-1.8L3.4 1.9a1 1 0 00-1.4 1.15L4.5 12 2 19.45a1 1 0 001.4 1.15z"/>
-                                </svg>
-                            </button>
-                        </form>
-                        <p class="text-center text-xs text-secondary-text mt-2">
-                            Paidagogos can make mistakes. Double-check important answers.
-                        </p>
-                    </div>
-                </div>
-            </section>
+            <article></article>
+            <aside></aside>
         </main>
 
-        <footer></footer>
-        
-
-        <script type="module" src="../Js/Components/Chat_Page/search.js" ></script>
         <script type="module" src="../Js/Components/Chat_Page/navbar.js"></script>
     </body>
 </html>
