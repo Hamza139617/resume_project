@@ -2,7 +2,7 @@
 // for sending the user query
 
 export async function sendChatMessage(message) {
-    const response = await fetch("http://localhost:8000/chat", {
+    const response = await fetch("https://unfrosted-democrat-browbeat.ngrok-free.dev/chat", {
         method:"POST",
         headers: {
             "Content-Type": "application/json"
