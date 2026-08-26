@@ -2,6 +2,9 @@ from dotenv import load_dotenv
 import os
 from pydantic import BaseModel, Field
 from typing import TypedDict, List, Optional, Annotated
+from psycopg_pool import ConnectionPool
+from psycopg.rows import dict_row
+from langgraph.checkpoint.postgres import PostgresSaver
 
 
 from langchain_groq import ChatGroq
@@ -15,10 +18,15 @@ from langgraph.checkpoint.memory import MemorySaver
 
 
 
+
+
 ## llm section
 
 load_dotenv()
 llm_token = os.getenv("Groq_Token")
+DB_URI = os.getenv("DATABASE_URL")
+
+
 
 
 llm = ChatGroq(
@@ -26,6 +34,16 @@ llm = ChatGroq(
     model="openai/gpt-oss-20b",
     temperature=0.0
 )
+
+
+pool = ConnectionPool(
+    conninfo=DB_URI,
+    kwargs={"autocommit": True, "row_factory": dict_row},
+)
+
+checkpointer = PostgresSaver(pool)
+checkpointer.setup()
+
 
 
 # prompt section
@@ -71,7 +89,7 @@ def chat_node(state: ChatState)-> ChatState:
     return {"messages": [response]}
 
 
-memory = MemorySaver()
+
 
 graph_builder = StateGraph(ChatState)
 
@@ -81,7 +99,7 @@ graph_builder.add_edge(START, "chat")
 
 graph_builder.add_edge("chat", END)
 
-graph = graph_builder.compile(checkpointer=memory)
+graph = graph_builder.compile(checkpointer=checkpointer)
 
 def run_chat_graph(query: str, thread_id: str = "default-session"):
     config = {"configurable": {"thread_id": thread_id}}
@@ -89,4 +107,8 @@ def run_chat_graph(query: str, thread_id: str = "default-session"):
     return result["messages"][-1].content
 
 
+def get_conversation_messages(thread_id: str) -> list[dict]:
 
+    state = graph.get_state({"configurable": {"thread_id": thread_id}})
+    messages = state.values.get("messages", [])
+    return [{"role": m.type, "content": m.content} for m in messages]
