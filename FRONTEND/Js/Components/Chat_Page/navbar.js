@@ -62,7 +62,20 @@ export async function openConversation(id) {
 }
 
 
+export async function renderSidbarList(conversations) {
+    const conversation_list = document.getElementById("previous_chat");
 
+    conversations.forEach(conversation => {
+        let item = document.createElement("div")
+        let attribute = document.createAttribute("class");
+        attribute.value = "flex items-center gap-3 px-3 py-2 rounded-lg text-secondary-text hover:bg-teal/10 hover:text-body-text text-sm  transition-colors nav-text text-hidden font-medium";
+        item.setAttributeNode(attribute);
+        item.textContent = conversation.title;
+        item.addEventListener("click", () => openConversation(conversation.id));
+        conversation_list.appendChild(item);
+    })
+
+}
 
 
 
