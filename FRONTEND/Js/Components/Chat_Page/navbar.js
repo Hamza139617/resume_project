@@ -4,14 +4,14 @@ import { setCurrentConversation } from "../../State/currentConversation.js";
 
 const logoBtn = document.getElementById('logo-btn')
 const sidebar = document.getElementById('sidebar')
-const sidebarText = sidebar.querySelectorAll('.nav-text')
+
 const sidebarOverlay = document.getElementById('sidebarOverlay')
 
 logoBtn.addEventListener('click', () => {
     sidebar.classList.toggle('is-open');
     sidebarOverlay.classList.toggle('is-open');
 
-    sidebarText.forEach((sideText) => {
+    sidebar.querySelectorAll('.nav-text').forEach((sideText) => {
         sideText.classList.toggle('text-hidden');
     });
 });
@@ -20,7 +20,7 @@ logoBtn.addEventListener('click', () => {
 sidebarOverlay.addEventListener('click', () => {
     sidebar.classList.remove('is-open');
     sidebarOverlay.classList.remove('is-open');
-    sidebarText.forEach((sideText) => {
+    sidebar.querySelectorAll('.nav-text').forEach((sideText) => {
         sideText.classList.add('text-hidden');
     });
 });
@@ -64,19 +64,21 @@ export async function openConversation(id) {
 
 export async function renderSidebarList(conversations) {
     const conversation_list = document.getElementById("previous_chat");
+    conversation_list.innerHTML = "";
 
     conversations.forEach(conversation => {
-        let item = document.createElement("div")
-        let attribute = document.createAttribute("class");
-        attribute.value = "flex items-center gap-3 px-3 py-2 rounded-lg text-secondary-text hover:bg-teal/10 hover:text-body-text text-sm  transition-colors nav-text text-hidden font-medium";
-        item.setAttributeNode(attribute);
-        item.textContent = conversation.title;
+        const item = document.createElement("div");
+        item.className = "flex items-center gap-3 px-3 py-2 rounded-lg text-secondary-text hover:bg-teal/10 hover:text-body-text text-sm transition-colors cursor-pointer my-1";
+
+        const label = document.createElement("div");
+        label.className = "nav-text text-hidden font-medium truncate";
+        label.textContent = conversation.title;
+
+        item.appendChild(label);
         item.addEventListener("click", () => openConversation(conversation.id));
         conversation_list.appendChild(item);
-    })
-
+    });
 }
-
 
 
 

@@ -60,3 +60,11 @@
     pointer-events: auto;
     backdrop-filter: blur(4px);
 }
+
+#previous_chat {
+    display: flex;
+    flex-direction: column;
+    max-height: 45vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
