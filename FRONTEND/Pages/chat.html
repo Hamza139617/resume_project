@@ -142,11 +142,53 @@
                                      focus-within:border-mint/60 focus-within:shadow-[0_0_0_3px_rgba(33,230,193,0.15)] 
                                      transition-all duration-200">
                             
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-secondary-text shrink-0" 
-                                 fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" 
-                                      d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z" />
-                            </svg>
+<div class="relative shrink-0">
+    <button
+        type="button"
+        id="toolsButton"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="w-8 h-8 flex items-center justify-center rounded-full text-secondary-text
+               hover:bg-teal/10 hover:text-mint transition-colors duration-200
+               focus:outline-none focus:ring-2 focus:ring-mint/40"
+    >
+        <svg id="toolsButtonIcon" xmlns="http://www.w3.org/2000/svg"
+             class="w-5 h-5 transition-transform duration-300 ease-out"
+             fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14" />
+        </svg>
+    </button>
+
+    <div
+        id="toolsMenu"
+        class="absolute bottom-full left-0 mb-3 w-64 origin-bottom-left
+               bg-primary border border-teal/20 rounded-2xl shadow-xl shadow-b-navy/40
+               p-2 opacity-0 scale-95 translate-y-2 pointer-events-none
+               transition-all duration-200 ease-out h-64 overflow-y-scroll"
+    >
+        <div class="px-3 py-2 text-xs font-medium text-secondary-text uppercase tracking-wide">
+            Tools
+        </div>
+                
+                <button type="button" id="uploadDocButton"
+                class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left
+                       text-body-text hover:bg-teal/10 transition-colors duration-150">
+            <span class="w-8 h-8 flex items-center justify-center rounded-lg bg-mint/10 text-mint shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16" />
+                </svg>
+            </span>
+            <span class="flex flex-col">
+                <span class="text-sm font-medium">Upload document</span>
+                <span class="text-xs text-secondary-text">Let Paidagogos study a file with you</span>
+            </span>
+        </button>
+
+
+    </div>
+</div>
+
+<input type="file" id="documentUploadInput" class="hidden" accept=".pdf,.doc,.docx,.txt" />
 
                             <input 
                                 id="searchBox"
@@ -176,7 +218,7 @@
 
         <footer></footer>
         
-
+        <script type="module" src="../Js/Components/Chat_Page/toolMenu.js"></script>
         <script type="module" src="../Js/Components/Chat_Page/search.js" ></script>
         <script type="module" src="../Js/Components/Chat_Page/navbar.js"></script>
     </body>
