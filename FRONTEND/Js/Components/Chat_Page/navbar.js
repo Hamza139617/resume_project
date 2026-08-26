@@ -21,3 +21,16 @@ sidebarOverlay.addEventListener('click', () => {
     });
 });
 
+
+const newChatButton = document.getElementById("newChatButton");
+
+newChatButton.addEventListener('click', () => {
+    const chatBox = document.getElementById("chatArea");
+
+    chat_list = chatBox.querySelectorAll("div")
+
+    chat_list.forEach(div => {
+        div.remove();
+    })
+})
+

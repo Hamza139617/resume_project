@@ -41,7 +41,7 @@ form.addEventListener("submit", async function(event) {
         
         let humanMessage = document.createElement("div")
         let attribute = document.createAttribute("class")
-        attribute.value = "block w-fit text-center bg-primary border border-teal/20 rounded-2xl px-4 py-3 text-body-text ml-auto my-4 "
+        attribute.value = "chat_messaage block w-fit text-center bg-primary border border-teal/20 rounded-2xl px-4 py-3 text-body-text ml-auto my-4 "
         
         
         humanMessage.setAttributeNode(attribute)
@@ -60,7 +60,7 @@ form.addEventListener("submit", async function(event) {
             
             let aiMessaage = document.createElement("div")
             let aiAttribute = document.createAttribute("class")
-            aiAttribute.value = "block max-w-2xl text-left bg-primary border border-teal/20 rounded-2xl px-4 py-3 text-body-text text-sm md:text-base leading-relaxed mr-auto my-4"
+            aiAttribute.value = "chat_message block max-w-2xl text-left bg-primary border border-teal/20 rounded-2xl px-4 py-3 text-body-text text-sm md:text-base leading-relaxed mr-auto my-4"
             aiMessaage.setAttributeNode(aiAttribute)
             aiMessaage.textContent = data.response
             chatBox.appendChild(aiMessaage)
@@ -77,7 +77,7 @@ form.addEventListener("submit", async function(event) {
 
         let humanMessage = document.createElement("div")
         let attribute = document.createAttribute("class")
-        attribute.value = "block w-fit text-center bg-primary border border-teal/20 rounded-2xl px-4 py-3 text-body-text ml-auto my-4 "
+        attribute.value = "chat_message block w-fit text-center bg-primary border border-teal/20 rounded-2xl px-4 py-3 text-body-text ml-auto my-4 "
         humanMessage.setAttributeNode(attribute)
         humanMessage.textContent = searchText
         chatBox.appendChild(humanMessage)
@@ -94,7 +94,7 @@ form.addEventListener("submit", async function(event) {
             
             let aiMessaage = document.createElement("div")
             let aiAttribute = document.createAttribute("class")
-            aiAttribute.value = "block max-w-2xl text-left bg-primary border border-teal/20 rounded-2xl px-4 py-3 text-body-text text-sm md:text-base leading-relaxed mr-auto my-4"
+            aiAttribute.value = "chat_message block max-w-2xl text-left bg-primary border border-teal/20 rounded-2xl px-4 py-3 text-body-text text-sm md:text-base leading-relaxed mr-auto my-4"
             aiMessaage.setAttributeNode(aiAttribute)
             aiMessaage.textContent = data.response
             chatBox.appendChild(aiMessaage)

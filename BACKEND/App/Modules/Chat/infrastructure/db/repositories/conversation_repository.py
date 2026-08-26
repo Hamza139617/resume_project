@@ -1,9 +1,8 @@
 import datetime
 from sqlalchemy.orm import Session
 
-from App.Modules.Chat.domain.models.conversation import Conversation
-from App.Modules.Chat.infrastructure.db.models.conversation_orm import ConversationORM
-
+from ......Modules.Chat.domain.models.conversation import Conversation
+from ......Modules.Chat.infrastructure.db.models.conversation_orm import ConversationORM
 
 class ConversationRepository:
     def __init__(self, db: Session):

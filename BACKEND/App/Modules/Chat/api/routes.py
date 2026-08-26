@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
-from App.Persistence.database import get_db
-from App.Modules.Chat.domain.models.conversation import Conversation
-from App.Modules.Chat.infrastructure.db.repositories.conversation_repository import ConversationRepository
-from App.Modules.Chat.schemas.conversation_schemas import ConversationOut, ChatRequest, MessageOut
-from App.Modules.AI.interface import interface
+from ....Persistence.database import get_db
+from ..domain.models.conversation import Conversation
+from ..infrastructure.db.repositories.conversation_repository import ConversationRepository
+from ..schemas.conversation_schemas import ConversationOut, ChatRequest, MessageOut
+from ...AI.interface import interface
 
 router = APIRouter()
 

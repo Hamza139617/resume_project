@@ -34,3 +34,7 @@ desktop.ini
 
 # virtual environment file
 BACKEND/paidagogas_venv
+
+# for ignoring all the pycache files
+__pycache__/
+*.pyc

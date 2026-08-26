@@ -1,7 +1,7 @@
 import datetime
 from sqlalchemy import Column, String, DateTime, Integer
 
-from App.Persistence.database import Base
+from ......Persistence.database import Base
 
 class ConversationORM(Base):
     __tablename__ = "conversations"
