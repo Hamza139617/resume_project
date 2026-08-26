@@ -9,7 +9,7 @@ from langgraph.checkpoint.postgres import PostgresSaver
 
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain_core.messages import HumanMessage, AIMessage, BaseMessage
+from langchain_core.messages import HumanMessage, AIMessage, BaseMessage, SystemMessage
 
 
 from langgraph.graph import StateGraph, END, START
@@ -17,7 +17,7 @@ from langgraph.graph.message import add_messages
 from langgraph.checkpoint.memory import MemorySaver
 
 
-
+from Documents.infrastructure.document_store import get_retriever
 
 
 
@@ -83,22 +83,66 @@ chain = chat_prompt | llm
 
 class ChatState(TypedDict):
     messages: Annotated[List[BaseMessage], add_messages]
+    document_id: str | None
+    retrieved_context: str | None
 
 
-def chat_node(state: ChatState)-> ChatState:
-    response = chain.invoke({"messages": state["messages"]})
 
+
+def chat_node(state: ChatState) -> ChatState:
+    messages_to_send = list(state["messages"])
+
+    if state.get("retrieved_context"):
+        context_msg = SystemMessage(content=(
+            "Use the following document excerpts to help answer the user's "
+            "question. If they aren't relevant, answer from your own knowledge.\n\n"
+            f"--- Document context ---\n{state['retrieved_context']}"
+        ))
+        messages_to_send = [context_msg] + messages_to_send
+
+    response = llm.invoke(messages_to_send)  # your existing ChatGroq instance
     return {"messages": [response]}
 
 
 
 
+def retrieve_context_node(state: ChatState) -> ChatState:
+    document_id = state.get("document_id")
+
+    if not document_id:
+        return {}
+
+    latest_question = state["messages"][-1].content
+
+    try:
+        retriever = get_retriever(document_id, top_k=3)
+    except KeyError:
+
+        return {"retrieved_context": None}
+
+    retrieved_nodes = retriever.retrieve(latest_question)
+    combined_text = "\n\n".join(node.get_content() for node in retrieved_nodes)
+
+    return {"retrieved_context": combined_text}
+
+
+
 graph_builder = StateGraph(ChatState)
+
+graph_builder.add_node("retrieve_context", retrieve_context_node)
 
 graph_builder.add_node("chat", chat_node)
 
-graph_builder.add_edge(START, "chat")
+def route_after_start(state: ChatState) ->str:
+    return "has_document" if state.get("document_id") else "no_document"
 
+
+graph_builder.add_conditional_edges(
+    START,
+    route_after_start,
+    {"has_document": "retrieve_context", "no_document": "chat"},
+)
+graph_builder.add_edge("retrieve_context", "chat")
 graph_builder.add_edge("chat", END)
 
 graph = graph_builder.compile(checkpointer=checkpointer)
