@@ -15,6 +15,9 @@
     <link href="Css/output.css" rel="stylesheet" />
 
     <link rel="icon" type="image/svg+xml" href="Assets/favicon_3.png" />
+    <link rel="stylesheet" href="Css/Pages_Css/index.css">
+    
+
   </head>
 
   <body class="bg-b-navy text-body-text antialiased overflow-x-hidden">
@@ -439,7 +442,7 @@
 
 
 
-      <section id="about" class="py-24 sm:py-32">
+      <section id="about" class="scroll-reveal py-24 sm:py-32">
         <div class="max-w-4xl mx-auto px-5 sm:px-8 text-center">
           <p
             class="text-mint text-xs font-semibold tracking-[0.2em] uppercase mb-5"
@@ -471,7 +474,7 @@
 
       <section
         id="features"
-        class="py-24 sm:py-32 border-y border-teal/10 bg-primary/30"
+        class="scroll-reveal py-24 sm:py-32 border-y border-teal/10 bg-primary/30"
       >
         <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
           <!-- SECTION HEADING -->
@@ -634,7 +637,7 @@
       <!-- how it works section  -->
 
 
-      <section id="how-it-works" class="py-24 sm:py-32">
+      <section id="how-it-works" class="scroll-reveal py-24 sm:py-32">
         <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
           <div class="text-center max-w-2xl mx-auto mb-16">
             <p
@@ -699,7 +702,7 @@
 
 
 
-      <section id="get-started" class="relative py-24 sm:py-32 overflow-hidden">
+      <section id="get-started" class="scroll-reveal relative py-24 sm:py-32 overflow-hidden">
         <div
           class="absolute inset-0 bg-primary/60 border-y border-teal/10"
         ></div>
@@ -792,6 +795,27 @@
           mobileMenu.classList.add("hidden");
         });
       });
+
+      const revealElements = document.querySelectorAll(".scroll-reveal");
+
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.42
+        });
+        
+        revealElements.forEach((element) => {
+          revealObserver.observe(element);
+        });
+
+
     </script>
   </body>
 </html>
