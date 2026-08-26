@@ -183,6 +183,9 @@ body::after {
 
 .history-item {
     position: relative;
+    font-size: 20px;
+    margin-top:10px;
+    margin-bottom: 20px;
 
     background:
         linear-gradient(
