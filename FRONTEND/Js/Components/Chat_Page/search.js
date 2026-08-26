@@ -1,5 +1,20 @@
 import { sendChatMessage } from "../../Api/message.js";
 
+import { currentConversationId } from "../../State/currentConversation.js";
+import { startNewChat } from "./navbar.js";
+
+
+// initializing the main chat page
+
+async function initChatPage() {
+    if (!currentConversationId) {
+        await startNewChat();
+    }
+    await refreshSidebar();  // so past chats show up on load too
+}
+
+initChatPage();
+
 
 // helppr function
 
@@ -54,7 +69,7 @@ form.addEventListener("submit", async function(event) {
         chatBox.scrollTop = chatBox.scrollHeight
 
         try{
-            const data = await sendChatMessage(searchText)
+            const data = await sendChatMessage(searchText, currentConversationId)
             typingIndicator.remove()
 
             
@@ -89,7 +104,7 @@ form.addEventListener("submit", async function(event) {
                 chatBox.scrollTop = chatBox.scrollHeight
 
         try{
-            const data = await sendChatMessage(searchText)
+            const data = await sendChatMessage(searchText, currentConversationId)
             typingIndicator.remove()
             
             let aiMessaage = document.createElement("div")

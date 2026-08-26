@@ -1,3 +1,7 @@
+import { createConversation, fetchConversations, fetchConversationMessages } from "../../Api/conversations.js";
+import { setCurrentConversation } from "../../State/currentConversation.js";
+
+
 const logoBtn = document.getElementById('logo-btn')
 const sidebar = document.getElementById('sidebar')
 const sidebarText = sidebar.querySelectorAll('.nav-text')
@@ -21,16 +25,46 @@ sidebarOverlay.addEventListener('click', () => {
     });
 });
 
+export async function clearChatWindow() {
 
-const newChatButton = document.getElementById("newChatButton");
-
-newChatButton.addEventListener('click', () => {
     const chatBox = document.getElementById("chatArea");
 
-    chat_list = chatBox.querySelectorAll("div")
+    const chat_list = chatBox.querySelectorAll("div");
 
     chat_list.forEach(div => {
         div.remove();
     })
+
+}
+
+
+const newChatButton = document.getElementById("newChatButton");
+
+newChatButton.addEventListener('click', () => {
+    clearChatWindow();
 })
 
+
+
+export async function startNewChat() {
+    const conversation = await createConversation();
+    setCurrentConversation(conversation.id);
+    clearChatWindow();       
+    await refreshSidebar();
+}
+
+
+
+export async function openConversation(id) {
+    setCurrentConversation(id);
+    const messages = await fetchConversationMessages(id);
+    renderMessages(messages);  
+}
+
+
+
+
+export async function refreshSidebar() {
+    const conversations = await fetchConversations();
+    renderSidebarList(conversations);
+}
