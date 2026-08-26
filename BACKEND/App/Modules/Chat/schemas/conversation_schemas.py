@@ -19,3 +19,7 @@ class ChatRequest(BaseModel):
 class MessageOut(BaseModel):
     role: str
     content: str
+
+
+class ConversationCreate(BaseModel):
+    title: str | None = None

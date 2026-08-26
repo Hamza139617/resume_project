@@ -1,9 +1,13 @@
 import { BASE_URL } from "./config.js";
 
-export async function createConversation() {
+export async function createConversation(title) {
     const response = await fetch(`${BASE_URL}/conversations`, {
         method: "POST",
-        headers: { "ngrok-skip-browser-warning": "true" }
+        headers: {
+            "Content-Type": "application/json",
+            "ngrok-skip-browser-warning": "true"
+        },
+        body: title ? JSON.stringify({ title }) : undefined,
     });
     if (!response.ok) throw new Error(`Server error: ${response.status}`);
     return await response.json();

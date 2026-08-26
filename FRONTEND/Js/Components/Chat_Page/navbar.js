@@ -41,9 +41,9 @@ export async function clearChatWindow() {
 const newChatButton = document.getElementById("newChatButton");
 
 newChatButton.addEventListener('click', () => {
+    setCurrentConversation(null);
     clearChatWindow();
-})
-
+});
 
 
 export async function startNewChat() {

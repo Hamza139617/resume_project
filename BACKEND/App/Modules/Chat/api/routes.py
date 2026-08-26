@@ -1,20 +1,20 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Body
 from sqlalchemy.orm import Session
 
 from ....Persistence.database import get_db
 from ..domain.models.conversation import Conversation
 from ..infrastructure.db.repositories.conversation_repository import ConversationRepository
-from ..schemas.conversation_schemas import ConversationOut, ChatRequest, MessageOut
+from ..schemas.conversation_schemas import ConversationOut, ChatRequest, MessageOut, ConversationCreate
 from ...AI.interface import interface
 
 router = APIRouter()
 
 @router.post("/conversations", response_model=ConversationOut)
-def create_conversation(db: Session = Depends(get_db)):
+def create_conversation(payload: ConversationCreate | None = Body(default=None), db: Session = Depends(get_db)):
     repo = ConversationRepository(db)
-    conversation = Conversation.create_new()
+    title = payload.title if payload and payload.title else "New Chat"
+    conversation = Conversation.create_new(title=title)
     return repo.create(conversation)
-
 
 @router.get("/conversations", response_model=list[ConversationOut])
 def list_conversations(db: Session = Depends(get_db)):
