@@ -5,6 +5,18 @@ from sqlalchemy import pool
 
 from alembic import context
 
+import os
+import sys
+from dotenv import load_dotenv
+
+load_dotenv()
+sys.path.append(os.path.join(os.path.dirname(__file__), "..", "..", "BACKEND"))
+
+
+from App.Persistence.database import Base
+from App.Modules.Chat.infrastructure.db.models.conversation_orm import ConversationORM  
+
+
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
@@ -18,7 +30,9 @@ if config.config_file_name is not None:
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-target_metadata = None
+target_metadata = Base.metadata
+
+config.set_main_option("sqlalchemy.url", os.getenv("DATABASE_URL"))
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
