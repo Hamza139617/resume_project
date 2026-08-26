@@ -1,21 +1,17 @@
+import { BASE_URL } from "./config.js";
 
-// for sending the user query
 
-export async function sendChatMessage(message) {
-    const response = await fetch("https://unfrosted-democrat-browbeat.ngrok-free.dev/chat", {
-        method:"POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({message: message})
+export async function sendChatMessage(message, conversationId) {
+ 
+    const response = await fetch(`${BASE_URL}/chat`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message, conversation_id: conversationId }),
+ 
     });
-
-    if (!response.ok){
-        throw new Error(`Server error: ${response.status}`);
-
-    }
-
-    const data = await response.json()
-
-    return data;
+ 
+    if (!response.ok) throw new Error(`Server error: ${response.status}`);
+ 
+ 
+    return await response.json();
 }
