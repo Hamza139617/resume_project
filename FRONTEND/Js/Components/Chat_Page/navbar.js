@@ -62,7 +62,7 @@ export async function openConversation(id) {
 }
 
 
-export async function renderSidbarList(conversations) {
+export async function renderSidebarList(conversations) {
     const conversation_list = document.getElementById("previous_chat");
 
     conversations.forEach(conversation => {

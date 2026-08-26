@@ -1,7 +1,7 @@
 import { sendChatMessage } from "../../Api/message.js";
 
 import { currentConversationId } from "../../State/currentConversation.js";
-import { startNewChat } from "./navbar.js";
+import { startNewChat, refreshSidebar } from "./navbar.js";
 
 
 // initializing the main chat page

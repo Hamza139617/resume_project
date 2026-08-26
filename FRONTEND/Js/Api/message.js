@@ -2,10 +2,11 @@ import { BASE_URL } from "./config.js";
 
 
 export async function sendChatMessage(message, conversationId) {
+
  
     const response = await fetch(`${BASE_URL}/chat`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {    "Content-Type": "application/json",    "ngrok-skip-browser-warning": "true"},
         body: JSON.stringify({ message, conversation_id: conversationId }),
  
     });
