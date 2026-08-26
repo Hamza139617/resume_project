@@ -64,7 +64,15 @@ export async function openConversation(id) {
 
 
 
+
+
+
 export async function refreshSidebar() {
     const conversations = await fetchConversations();
     renderSidebarList(conversations);
 }
+
+
+
+
+
