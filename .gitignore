@@ -31,3 +31,6 @@ desktop.ini
 # Temporary files
 *.tmp
 *.temp
+
+# virtual environment file
+BACKEND/paidagogas_venv

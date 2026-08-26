@@ -9,3 +9,6 @@ langgraph
 dotenv
 pydantic
 requests
+alembic
+langgraph-checkpoint-postgres
+psycopg[binary,pool]
