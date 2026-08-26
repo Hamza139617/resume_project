@@ -54,6 +54,33 @@ export async function startNewChat() {
 }
 
 
+function createHumanMessage(text)  {
+    const div = document.createElement("div");
+    div.className = "chat_message block w-fit text-center bg-primary border border-teal/20 rounded-2xl px-4 py-3 text-body-text ml-auto my-4";
+    div.textContent = text;
+    return div;
+}
+
+function createAiMessage(text) {
+    const div = document.createElement("div");
+    div.className = "chat_message block max-w-2xl text-left bg-primary border border-teal/20 rounded-2xl px-4 py-3 text-body-text text-sm md:text-base leading-relaxed mr-auto my-4";
+    div.textContent = text;
+    return div;
+}
+
+function renderMessages(messages) {
+    const chatBox = document.getElementById("chatArea");
+    clearChatWindow();
+
+    messages.forEach(message => {
+        const bubble = message.role === "human"
+        ? createHumanMessage(message.content)
+        : createAiMessage(message.content);
+        chatBox.appendChild(bubble);
+    });
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
 
 export async function openConversation(id) {
     setCurrentConversation(id);
