@@ -22,8 +22,9 @@
         inset 0 -1px 0 rgba(0, 0, 0, 0.18);
 
     transition:
-        border-color 1000ms ease,
-        box-shadow 1000ms ease;
+        border-color 2s ease,
+        box-shadow 2s ease;
+
 }
 
 #historybar::before {
@@ -79,6 +80,7 @@
 
 #historybar:hover {
     border-color: rgba(33, 230, 193, 0.22);
+
 
     box-shadow:
         0 0 25px rgba(33, 230, 193, 0.14),
@@ -207,12 +209,7 @@ body::after {
 }
 
 .history-item:hover {
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.06),
-            rgba(255, 255, 255, 0.018)
-        );
+
 
     border-color: rgba(33, 230, 193, 0.13);
 
