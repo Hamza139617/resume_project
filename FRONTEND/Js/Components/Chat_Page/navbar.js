@@ -40,11 +40,13 @@ export async function clearChatWindow() {
 
 const newChatButton = document.getElementById("newChatButton");
 
+if(newChatButton) {
 newChatButton.addEventListener('click', () => {
     setCurrentConversation(null);
     clearChatWindow();
 });
 
+}
 
 export async function startNewChat() {
     const conversation = await createConversation();
