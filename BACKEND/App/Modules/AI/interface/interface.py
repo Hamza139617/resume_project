@@ -147,9 +147,18 @@ graph_builder.add_edge("chat", END)
 
 graph = graph_builder.compile(checkpointer=checkpointer)
 
-def run_chat_graph(query: str, thread_id: str = "default-session"):
+def run_chat_graph(query: str, thread_id: str = "default-session", document_id: str | None = None):
     config = {"configurable": {"thread_id": thread_id}}
-    result = graph.invoke({"messages": [HumanMessage(content=query)]}, config=config)
+
+    input_state = {
+        "messages": [HumanMessage(content=query)],
+        "document_id": document_id,
+    }
+
+    if document_id is None:
+        input_state["retrieved_context"] = None
+
+    result = graph.invoke(input_state, config=config)
     return result["messages"][-1].content
 
 

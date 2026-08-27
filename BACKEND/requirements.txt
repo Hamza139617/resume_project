@@ -12,3 +12,9 @@ requests
 alembic
 langgraph-checkpoint-postgres
 psycopg[binary,pool]
+python-multipart
+llama-index-core
+llama-index-readers-file
+llama-index-embeddings-huggingface
+pypdf
+docx2txt

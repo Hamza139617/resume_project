@@ -28,7 +28,11 @@ def get_messages(conversation_id: str):
 
 @router.post("/chat")
 def chat_endpoint(request: ChatRequest, db: Session = Depends(get_db)):
-    result = interface.run_chat_graph(request.message, request.conversation_id)
+    result = interface.run_chat_graph(
+        request.message,
+        request.conversation_id,
+        document_id=request.document_id,
+    )
     repo = ConversationRepository(db)
     repo.touch(request.conversation_id)
     return {"response": result}

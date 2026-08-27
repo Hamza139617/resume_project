@@ -8,7 +8,7 @@ export async function renderHistorybar(conversations) {
         const item = document.createElement("div");
         item.className = "history-item text-center";
 
-
+        item.textContent = conversation.title;
 
         conversation_list.appendChild(item);
     });

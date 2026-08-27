@@ -2,6 +2,7 @@ import { sendChatMessage } from "../../Api/message.js";
 import { createConversation } from "../../Api/conversations.js";
 import { currentConversationId, setCurrentConversation } from "../../State/currentConversation.js";
 import { refreshSidebar } from "./navbar.js";
+import { currentDocumentId } from "../../State/currentDocument.js";
 
 async function initChatPage() {
     await refreshSidebar();
@@ -69,7 +70,7 @@ form.addEventListener("submit", async function(event) {
             await refreshSidebar();
         }
 
-        const data = await sendChatMessage(searchText, conversationId);
+        const data = await sendChatMessage(searchText, conversationId, currentDocumentId);
         typingIndicator.remove();
 
         let aiMessage = document.createElement("div");

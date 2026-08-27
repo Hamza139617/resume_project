@@ -15,6 +15,7 @@ class ConversationOut(BaseModel):
 class ChatRequest(BaseModel):
     message: str
     conversation_id: str
+    document_id: str | None = None
 
 class MessageOut(BaseModel):
     role: str
