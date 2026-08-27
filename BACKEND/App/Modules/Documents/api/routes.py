@@ -4,7 +4,7 @@ from pathlib import Path
 
 from fastapi import APIRouter, UploadFile, File, HTTPException
 
-from Documents.application.document_processor import process_document
+from ..application.document_processor import process_document
 
 router = APIRouter(prefix="/documents", tags=["documents"])
 

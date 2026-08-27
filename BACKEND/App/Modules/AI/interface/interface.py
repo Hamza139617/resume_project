@@ -17,7 +17,7 @@ from langgraph.graph.message import add_messages
 from langgraph.checkpoint.memory import MemorySaver
 
 
-from Documents.infrastructure.document_store import get_retriever
+from ...Documents.infrastructure.document_store import get_retriever
 
 
 
